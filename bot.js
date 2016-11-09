@@ -6,19 +6,28 @@ var config = require("./config");
 
 var T = new Twit(config);
 
-var message = {
-  status: 'hello world! 2'
-}
+setInterval(sendTweet, 1000*60);
+//sendTweet();
 
-T.post('statuses/update', message, tweeted);
+function sendTweet() {
+  // body...
+  var rando = Math.floor(Math.random()*100);
 
-function tweeted(err, data, response) {
-  if(err){
-    console.log("Error");
-  } else {
-    console.log("tweet successful");
+  var message = { 
+  status: 'Testing run! random number' + rando
   }
- //console.log(data);
+
+  T.post('statuses/update', message, tweeted);
+
+  function tweeted(err, data, response) {
+    if(err){
+      console.log("Error");
+    } else {
+      console.log("tweet successful");
+    }
+   //console.log(data);
+  }
 }
+
 
 

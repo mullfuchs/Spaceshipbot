@@ -6,7 +6,19 @@ var config = require("./config");
 
 var T = new Twit(config);
 
-T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-  console.log(data)
-})
+var message = {
+  status: 'hello world! 2'
+}
+
+T.post('statuses/update', message, tweeted);
+
+function tweeted(err, data, response) {
+  if(err){
+    console.log("Error");
+  } else {
+    console.log("tweet successful");
+  }
+ //console.log(data);
+}
+
 

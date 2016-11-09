@@ -19,10 +19,30 @@ function sendTweet() {
 
   exec(command, processing);
 
+  function processing() {
+      var filename = 'imageCreator/output.png';
+      var params = {
+        encoding: 'base64'
+      }
+      var b64Content = fs.readFileSync(filename, params);
+      T.post('media/upload', {media_data: b64Content}, uploaded); 
 
+      function uploaded(err, data, response) {
+        // body...
+        var id = data.media_id_string;
 
+        var rando = Math.floor(Math.random()*100);
 
-  //T.post('statuses/update', message, tweeted);
+        var message = { 
+          status: 'Testing run! random image ' + rando,
+          media_ids: [id]
+        }
+
+        T.post('statuses/update', message, tweeted);
+      }
+      console.log('created image');
+    }
+
 
   function tweeted(err, data, response) {
     if(err){
@@ -34,29 +54,7 @@ function sendTweet() {
   }
 }
 
-function processing() {
-  var filename = 'imageCreator/output.png';
-  var params = {
-    encoding: 'base64'
-  }
-  var b64Content = fs.readFileSync(filename, params);
-  T.post('media/upload', {media_data: b64Content}, uploaded); 
 
-  function uploaded(err, data, response) {
-    // body...
-    var id = data.media_id_string;
-
-    var rando = Math.floor(Math.random()*100);
-
-    var message = { 
-      status: 'Testing run! random image ' + rando,
-      media_ids: [id];
-    }
-    
-  }
-
-  console.log('created image');
-}
 
 
 

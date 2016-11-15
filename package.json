@@ -13,6 +13,8 @@
   "author": "Leo Burke",
   "license": "ISC",
   "dependencies": {
+    "jsdom": "^9.8.3",
+    "node-jsdom": "^3.1.5",
     "processing": "^0.2.0",
     "twit": "^2.2.5"
   }

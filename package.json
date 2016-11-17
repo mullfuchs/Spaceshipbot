@@ -17,5 +17,14 @@
     "node-jsdom": "^3.1.5",
     "processing": "^0.2.0",
     "twit": "^2.2.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mullfuchs/Spaceshipbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mullfuchs/Spaceshipbot/issues"
+  },
+  "homepage": "https://github.com/mullfuchs/Spaceshipbot#readme"
 }

@@ -14,7 +14,7 @@ var Processing = require('processing');
 
 var canvas = Processing.createElement('canvas');
 
-//setInterval(sendTweet, 1000*60);
+//setInterval(sendTweet, 1000*60); jjadsfljkasfksajldfklsakjlklasdjfsadf
 sendTweet();
 
 function sendTweet() {
